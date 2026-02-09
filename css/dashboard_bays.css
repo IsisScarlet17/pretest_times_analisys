@@ -1,0 +1,716 @@
+/* ================================================================
+   RESET Y BASE
+   ================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    padding: 24px;
+    font-size: 14px;
+    zoom: 0.8;
+    -moz-transform: scale(0.8);
+    -moz-transform-origin: 0 0;
+}
+
+/* ================================================================
+   CONTENEDOR PRINCIPAL
+   ================================================================ */
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+/* ================================================================
+   PROJECT TABS
+   ================================================================ */
+.project-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tab-button {
+    flex: 1;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    border-color: #3498db;
+    background: #ecf0f1;
+}
+
+.tab-button.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* ================================================================
+   BAY TABS
+   ================================================================ */
+.bay-tabs-section {
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bay-tabs-section h3 {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.bay-tabs-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.bay-tab {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bay-tab:hover {
+    border-color: #2ecc71;
+    background: #e8f8f5;
+}
+
+.bay-tab.active {
+    background: #2ecc71;
+    color: white;
+    border-color: #2ecc71;
+}
+
+/* ================================================================
+   HEADER Y CONTROLES
+   ================================================================ */
+.header {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-size: 30px;
+}
+
+.controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+.controls select, 
+.controls button {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.controls button {
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.controls button:hover {
+    background: #2980b9;
+}
+
+.controls button:active {
+    transform: scale(0.98);
+}
+
+/* ================================================================
+   BATCH FILTER (METRICS PANEL)
+   ================================================================ */
+.batch-filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.batch-filter-container h2 {
+    margin: 0 0 4px 0;
+    color: #2c3e50;
+    font-size: 19px;
+}
+
+.batch-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: fit-content;
+}
+
+.batch-selector label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+    margin: 0;
+}
+
+#batchFilter {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 2px solid #ced4da;
+    background: white;
+    font-size: 11px;
+    font-weight: 500;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 112px;
+}
+
+#batchFilter:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.15);
+}
+
+#batchFilter:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.info-badge {
+    display: inline-block;
+    background: #ecf0f1;
+    padding: 6px 13px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-left: 12px;
+    font-weight: 600;
+}
+
+/* ================================================================
+   LAYOUT PRINCIPAL
+   ================================================================ */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* ================================================================
+   CONTENEDOR DE GRÁFICA
+   ================================================================ */
+.chart-container {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 840px;
+    display: flex;
+    flex-direction: column;
+}
+
+#chart {
+    flex: 1;
+    max-height: 760px;
+}
+
+/* ================================================================
+   BREAKDOWN TABLE
+   ================================================================ */
+.breakdown-section-wrapper {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 24px;
+}
+
+.breakdown-section {
+    width: 100%;
+}
+
+.breakdown-section h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.breakdown-table thead {
+    background: #34495e;
+    color: white;
+}
+
+.breakdown-table th {
+    padding: 11px 10px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #2c3e50;
+}
+
+.breakdown-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.breakdown-table tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.breakdown-table tbody tr:hover {
+    background: #e3f2fd;
+}
+
+.breakdown-table .stage-cell,
+.breakdown-table .usn-cell,
+.breakdown-table .date-cell,
+.breakdown-table .batch-cell {
+    font-weight: 600;
+    color: #2c3e50;
+    background: #ecf0f1;
+}
+
+.breakdown-table .value-cell {
+    font-family: 'Courier New', monospace;
+    color: #34495e;
+}
+
+.breakdown-table .count-cell {
+    font-weight: 600;
+    color: #3498db;
+}
+
+/* ================================================================
+   PANEL DE MÉTRICAS
+   ================================================================ */
+.metrics-panel {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 840px;
+    overflow-y: auto;
+}
+
+.metrics-panel h2 {
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-size: 19px;
+}
+
+/* ================================================================
+   MÉTRICAS DE ENVIRONMENT
+   ================================================================ */
+.env-metric {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #eee;
+}
+
+.env-metric:last-child {
+    border-bottom: none;
+    margin-bottom: 12px;
+}
+
+.env-metric h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.env-metric .total-time {
+    font-size: 19px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ================================================================
+   GRID DE ESTADÍSTICAS
+   ================================================================ */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.stat-item {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.stat-item.highlight-avg {
+    background: #e8f4fd;
+    border: 2px solid #3498db;
+    padding: 12px;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+}
+
+.highlight-avg .stat-label {
+    font-size: 11px;
+    color: #2980b9;
+    font-weight: 700;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 3px;
+}
+
+.stat-value-avg {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2980b9;
+}
+
+/* ================================================================
+   QUALITY METRICS
+   ================================================================ */
+.quality-metric {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.quality-item {
+    background: #f8f9fa;
+    padding: 14px;
+    border-radius: 6px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quality-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.quality-label {
+    font-size: 10px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.quality-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 6px 0;
+}
+
+.quality-detail {
+    font-size: 10px;
+    color: #95a5a6;
+    margin-top: 5px;
+}
+
+/* ================================================================
+   ESTADOS DE CARGA
+   ================================================================ */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+    margin: 16px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ================================================================
+   RAW DATA TABLE
+   ================================================================ */
+.raw-data-section {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 24px;
+}
+
+.raw-data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.raw-data-header h2 {
+    color: #2c3e50;
+    font-size: 21px;
+    margin: 0;
+}
+
+.raw-data-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.raw-data-controls input {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 240px;
+}
+
+.raw-data-controls button {
+    padding: 10px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.raw-data-controls button:hover {
+    background: #2980b9;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 480px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#rawDataTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+#rawDataTable thead {
+    position: sticky;
+    top: 0;
+    background: #4472C4;
+    z-index: 10;
+}
+
+#rawDataTable th {
+    background: #4472C4;
+    color: white;
+    padding: 10px 6px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #3461ab;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+#rawDataTable th:hover {
+    background: #3461ab;
+}
+
+#rawDataTable th::after {
+    content: ' ⇅';
+    opacity: 0.3;
+    font-size: 10px;
+}
+
+#rawDataTable th.sort-asc::after {
+    content: ' ▲';
+    opacity: 1;
+}
+
+#rawDataTable th.sort-desc::after {
+    content: ' ▼';
+    opacity: 1;
+}
+
+#rawDataTable td {
+    padding: 8px 6px;
+    border: 1px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+#rawDataTable tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+#rawDataTable tbody tr:hover {
+    background: #e3f2fd;
+}
+
+#rawDataTable td.number {
+    text-align: right;
+    font-family: 'Courier New', monospace;
+}
+
+#rawDataTable tbody td:first-child {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .metrics-panel {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 8px;
+    }
+    
+    .header {
+        padding: 12px;
+    }
+    
+    .controls {
+        gap: 8px;
+    }
+    
+    .chart-container,
+    .metrics-panel {
+        padding: 12px;
+    }
+    
+    #chart {
+        height: 280px;
+    }
+}
+
+/* ================================================================
+   QUALITY METRICS
+   ================================================================ */
+.quality-metric {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.quality-item {
+    background: #f8f9fa;
+    padding: 14px;
+    border-radius: 6px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quality-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.quality-label {
+    font-size: 10px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.quality-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 6px 0;
+}
+
+.quality-detail {
+    font-size: 10px;
+    color: #95a5a6;
+    margin-top: 5px;
+}

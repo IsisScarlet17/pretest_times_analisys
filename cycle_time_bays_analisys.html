@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestest Dashboard</title>
+    
+    <!-- Chart.js and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.1"></script>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/dashboard_bays.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Project Tabs -->
+        <div class="project-tabs">
+            <button class="tab-button active" data-project="L10">📦 L10 Project</button>
+            <button class="tab-button" data-project="L11">🔧 L11 Project</button>
+            <button class="tab-button" data-project="SUPER_L10_POT">⚡ Super L10 PoT</button>
+        </div>
+        
+        <!-- Bay Tabs (solo para L10) -->
+        <div id="bayTabsSection" class="bay-tabs-section" style="display: block;">
+            <h3>🏭 Select Bay:</h3>
+            <div id="bayTabsContainer" class="bay-tabs-container">
+                <!-- Bay tabs will be generated dynamically by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Header con controles -->
+        <div class="header">
+            <h1 id="pageTitle">📊 L10 Prestest Dashboard</h1>
+            <div class="controls">
+                <label>View:</label>
+                <select id="viewMode">
+                    <option value="all" selected>ñUSNs</option>
+                    <option value="daily">Daily Breakdown (RS PASS)</option>
+                    <option value="batch">Batch Breakdown</option>
+                </select>
+                
+                <label>Model:</label>
+                <select id="modelFilter">
+                    <option value="all">All</option>
+                </select>
+                
+                <button onclick="loadData()">🔄 Refresh</button>
+                <button onclick="downloadExcel()" style="background: #27ae60;">📥 Download Excel</button>
+                <span class="info-badge" id="usnCount">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Contenido principal: gráfica + métricas -->
+        <div class="main-content">
+            <!-- Gráfica -->
+            <div class="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+            
+            <!-- Environment metrics panel -->
+            <div class="metrics-panel">
+                <div class="batch-filter-container">
+                    <h2>⏱️ Environment Metrics</h2>
+                    <div class="batch-selector">
+                        <label>📦 Model:</label>
+                        <select id="metricsModelFilter">
+                            <option value="all">All Models</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="envMetrics">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Calculating metrics...
+                    </div>
+                </div>
+                
+                <div id="qualityMetricsSection">
+                    <h2 style="margin-top: 30px;">📊 Quality Metrics</h2>
+                    <div id="qualityMetrics">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Loading quality data...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakdown Table -->
+        <div class="breakdown-section-wrapper">
+            <div class="breakdown-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="margin: 0;">📊 Data Breakdown</h3>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label style="font-weight: 600;">📦 Model:</label>
+                        <select id="breakdownModelFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px;">
+                            <option value="all">All Models</option>
+                        </select>
+                        <button onclick="exportBreakdownToExcel()" style="padding: 8px 16px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">📥 Export Excel</button>
+                    </div>
+                </div>
+                <div id="breakdownTable"></div>
+            </div>
+        </div>
+
+        <!-- Raw Data Table -->
+        <div class="raw-data-section">
+            <div class="raw-data-header">
+                <h2>📋 Raw Data</h2>
+                <div class="raw-data-controls">
+                    <input type="text" id="searchBox" placeholder="🔍 Search USN, model, stage..." />
+                    <button onclick="downloadExcel()" style="background: #27ae60;">📥 Download Excel</button>
+                    <button onclick="toggleRawData()">👁️ Show/Hide</button>
+                </div>
+            </div>
+            <div id="rawDataContainer" style="display: block;">
+                <div class="table-wrapper">
+                    <table id="rawDataTable">
+                        <thead id="rawDataHeader">
+                            <!-- Dynamic header will be generated by JavaScript -->
+                        </thead>
+                        <tbody id="rawDataBody">
+                            <tr>
+                                <td colspan="50" style="text-align: center; padding: 20px;">
+                                    <div class="loading">
+                                        <div class="spinner"></div>
+                                        Loading data...
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/data_loader_bays.js"></script>
+</body>
+</html>
